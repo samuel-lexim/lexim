@@ -1,0 +1,2 @@
+# lexim
+Lexim Wordpress
