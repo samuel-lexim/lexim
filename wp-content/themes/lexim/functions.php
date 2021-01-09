@@ -192,7 +192,7 @@ if (defined('JETPACK__VERSION')) {
 //add_image_size( 'large', 120, 120, true );
 //add_image_size( 'medium_large', 120, 120, true );
 //add_image_size( 'medium', 120, 120, true );
-//add_image_size( 'thumbnail', 120, 120, true );
+add_image_size( 'post-thumbnail', 120);
 
 // Disable the threshold.
 add_filter('big_image_size_threshold', '__return_false');
@@ -200,6 +200,7 @@ add_filter('big_image_size_threshold', '__return_false');
 
 // Remove default image sizes here.
 add_filter('intermediate_image_sizes_advanced', 'prefix_remove_default_images');
+add_filter('intermediate_image_sizes', 'prefix_remove_default_images');
 function prefix_remove_default_images($sizes)
 {
     unset($sizes['thumbnail']); // 150x150 pixels
@@ -236,18 +237,18 @@ remove_filter('the_contemedia.phpnt', 'wpautop');
 remove_filter('the_excerpt', 'wpautop');
 
 
-// Add slug column for PAGE posts
+// Add slug column for PAGE posts, POSTs
 add_filter("manage_page_posts_columns", "page_columns");
 function page_columns($columns)
 {
     $add_columns = array(
         'slug' => 'Slug',
     );
-    $res = array_slice($columns, 0, 2, true) +
+    $response = array_slice($columns, 0, 2, true) +
         $add_columns +
         array_slice($columns, 2, count($columns) - 1, true);
 
-    return $res;
+    return $response;
 }
 
 add_action("manage_page_posts_custom_column", "my_custom_page_columns");
@@ -261,7 +262,40 @@ function my_custom_page_columns($column)
     }
 }
 
-// End - Add slug column for PAGE posts
+add_filter("manage_post_posts_columns", "post_columns");
+function post_columns($columns)
+{
+    $first_column = ['thumb_image' => 'Thumb'];
+    $add_columns = array(
+        'slug' => 'Slug'
+    );
+    $res = array_slice($columns, 0, 1, true) + $first_column +
+        array_slice($columns, 1, 1, true) + $add_columns +
+        array_slice($columns, 2, count($columns) - 1, true);
+
+    return $res;
+}
+
+add_action("manage_post_posts_custom_column", "my_custom_post_columns");
+function my_custom_post_columns($column)
+{
+    global $post;
+    switch ($column) {
+        case 'thumb_image' :
+            $noImg = get_stylesheet_directory_uri() . '/assets/img/noimage-admin.jpg';
+            $thumb = get_the_post_thumbnail_url($post->ID);
+            if ($thumb && $thumb !== "") {
+                $noImg = $thumb;
+            }
+            echo '<img width="50px" src="' . $noImg . '" />';
+            break;
+        case 'slug' :
+            echo $post->post_name;
+            break;
+    }
+}
+
+// End - Add slug column for PAGE posts, POSTs
 
 
 /**

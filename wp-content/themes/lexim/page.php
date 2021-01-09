@@ -11,28 +11,34 @@
  *
  * @package lexim
  */
-
-get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<?php get_header(); ?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+<div id="main" class="site-main page-main" role="main">
 
-			get_template_part( 'template-parts/content', 'page' );
+    <?php
+    while (have_posts()) :
+        the_post();
+        the_content();
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+        $page_sections = get_field('page_sections');
 
-		endwhile; // End of the loop.
-		?>
+        if ($page_sections && is_array($page_sections)) {
+            foreach ($page_sections as $section) {
+                $layout = $section['acf_fc_layout'];
 
-	</main><!-- #main -->
+                get_template_part('acf-layout/section', $layout, $section);
+                ?>
+            <?php } ?>
 
-<?php
-get_sidebar();
-get_footer();
+        <?php } ?>
+
+    <?php
+    endwhile;
+    // End of the loop.
+    ?>
+
+</div><!-- .site-main -->
+
+<?php get_footer(); ?>
