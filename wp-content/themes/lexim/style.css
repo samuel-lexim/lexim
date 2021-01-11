@@ -784,6 +784,9 @@ textarea {
 }
 
 
+/************* FOOTER */
+
+
 /************* PAGE SECTIONS */
 
 /* font size */
@@ -808,9 +811,26 @@ textarea {
 
 /* general */
 
+._description p:last-child {
+  margin-bottom: 0 !important;
+}
+
 .text_section {
   background: #fafafa;
   text-align: center;
+}
+
+.text_section.color_0d4d66 {
+  background: #0d4d66;
+  color: #fff;
+}
+
+.text_section.color_0d4d66 .dfHeading {
+  font-weight: bold;
+}
+
+.button_contact {
+  margin-top: 20px;
 }
 
 .button_contact a {
@@ -848,8 +868,6 @@ textarea {
 }
 
 
-
-
 @media only screen and (min-width: 768px) {
   .button_contact a,
   .statistic-item ._name {
@@ -868,7 +886,7 @@ textarea {
   .text_section ._description {
     font-size: 26px;
     max-width: 800px;
-    margin: 20px auto 40px;
+    margin: 20px auto 0;
   }
 
   .left-flex40 {

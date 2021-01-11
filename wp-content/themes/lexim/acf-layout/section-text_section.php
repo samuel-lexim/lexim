@@ -2,7 +2,12 @@
 $postId = get_the_ID();
 
 if (isset($args) && $args) {
-    $bgColor = 'color_' . $args['section_background'];
+    $bgColor = 'color_';
+    if ($args['section_background']) {
+        $color = trim($args['section_background']);
+        $color = str_replace('#', '', $color);
+        $bgColor .= $color;
+    }
     $sectionClass = $args['title_is_h1'] ? 'title_is_h1' : '';
     ?>
 

@@ -8,6 +8,7 @@ if (isset($args) && $args) {
 
         <div class="statistic_section one_col">
             <div class="statistic-items">
+
                 <?php foreach ($args['items'] as $item) { ?>
                     <div class="statistic-item">
                         <div class="_inner">
@@ -27,8 +28,6 @@ if (isset($args) && $args) {
                 <?php } ?>
 
             </div>
-
-
         </div>
     <?php } ?>
 
