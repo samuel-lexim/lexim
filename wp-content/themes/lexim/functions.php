@@ -150,6 +150,7 @@ function lexim_scripts()
     wp_style_add_data('lexim-style', 'rtl', 'replace');
 
     wp_enqueue_script('lexim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+    wp_enqueue_script('main-script', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -237,7 +238,7 @@ remove_filter('the_contemedia.phpnt', 'wpautop');
 remove_filter('the_excerpt', 'wpautop');
 
 
-// Add slug column for PAGE posts, POSTs
+// Add slug / images column for PAGE posts, POSTs
 add_filter("manage_page_posts_columns", "page_columns");
 function page_columns($columns)
 {
@@ -263,6 +264,7 @@ function my_custom_page_columns($column)
 }
 
 add_filter("manage_post_posts_columns", "post_columns");
+add_filter("manage_team_posts_columns", "post_columns");
 function post_columns($columns)
 {
     $first_column = ['thumb_image' => 'Thumb'];
@@ -277,6 +279,7 @@ function post_columns($columns)
 }
 
 add_action("manage_post_posts_custom_column", "my_custom_post_columns");
+add_action("manage_team_posts_custom_column", "my_custom_post_columns");
 function my_custom_post_columns($column)
 {
     global $post;
