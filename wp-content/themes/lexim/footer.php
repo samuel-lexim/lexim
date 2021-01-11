@@ -14,29 +14,20 @@ $social_links = get_field('social_links', 'option');
 ?>
 
 <footer class="site-footer" id="footer">
-    <div class="site-info">
-        <div class="left-footer">
-            <div class="_inner">
-                <?php if ($social_links && is_array($social_links)) { ?>
-                    <div class="footer_socials">
-                        <?php foreach ($social_links as $social) { ?>
-                            <a href="<?= $social['link'] ?>">
-                                <img class="svg" src="<?= $social['logo'] ?>" alt="<?= $social['link'] ?>" />
-                            </a>
-                        <?php } ?>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </div>
 
-    <div class="site-info bottom">
-        <div class="left-footer">
-            <?php if ($copy_rights) { ?>
-                <p class="copy-rights"><?= $copy_rights ?></p>
+    <?php if ($social_links && is_array($social_links)) { ?>
+        <div class="footer_socials">
+            <?php foreach ($social_links as $social) { ?>
+                <a href="<?= $social['link'] ?>">
+                    <img class="svg" src="<?= $social['logo'] ?>" alt="<?= $social['link'] ?>"/>
+                </a>
             <?php } ?>
         </div>
-    </div>
+    <?php } ?>
+
+    <?php if ($copy_rights) { ?>
+        <p class="copy-rights"><?= $copy_rights ?></p>
+    <?php } ?>
 
 </footer><!-- #colophon -->
 </div><!-- #page -->

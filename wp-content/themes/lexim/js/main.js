@@ -9,13 +9,15 @@
         $.get(imgURL, function (data) {
             // Get the SVG tag, ignore the rest
             let $svg = $(data).find('svg');
+            // Get Class name
+            let $svgClass = $svg.attr('class') ? $svg.attr('class') : '';
             // Add replaced image's ID to the new SVG
             if (typeof imgID !== 'undefined') {
                 $svg = $svg.attr('id', imgID);
             }
             // Add replaced image's classes to the new SVG
             if (typeof imgClass !== 'undefined') {
-                $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                $svg = $svg.attr('class', imgClass + ' ' + $svgClass + ' replaced-svg');
             }
             // Remove any invalid XML tags as per http://validator.w3.org
             $svg.removeAttr('xmlns:a');

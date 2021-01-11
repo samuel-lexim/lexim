@@ -785,7 +785,22 @@ textarea {
 
 
 /************* FOOTER */
+.site-footer {
+  background: #fafafa;
+  padding: 70px 20px;
+  text-align: center;
+  letter-spacing: 1.6px;
+}
 
+.footer_socials {
+  margin-bottom: 10px;
+}
+
+.footer_socials a {
+  text-decoration: none;
+  margin: 12px;
+  display: inline-block;
+}
 
 /************* PAGE SECTIONS */
 
@@ -867,6 +882,34 @@ textarea {
   border-radius: 40px;
 }
 
+.timeline_item {
+  color: #fff;
+  display: flex;
+  margin-bottom: 70px;
+}
+
+
+.timeline_item ._img {
+  flex: 0 0 68px;
+  margin-right: 20px;
+  padding-top: 17px;
+}
+
+.timeline_item ._txtGroup {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.timeline_item ._year {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.timeline_item ._tit {
+  font-weight: 600;
+}
+
+
 
 @media only screen and (min-width: 768px) {
   .button_contact a,
@@ -876,7 +919,7 @@ textarea {
   }
 
   .one_col {
-    padding: 5vw;
+    padding: 6vw 4vw;
   }
 
   ._description p {
@@ -917,6 +960,45 @@ textarea {
   .statistic-item ._counter {
     font-size: 72px;
   }
+
+  .timeline_section {
+    position: relative;
+    /*background-image: var(--bg-image);*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    min-height: 100vh;
+    padding-top: 70px;
+  }
+
+  .timeline_section .imgBg {
+  }
+
+  .timeline_section ._inner {
+    display: flex;
+    position: absolute;
+    top: 9vw;
+    left: 0;
+    width: 100%;
+    padding: 75px;
+  }
+
+  .timeline_section .leftCol {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-right: 50px;
+  }
+
+  .timeline_section .rightCol {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 50px;
+  }
+
 }
 
 /* # PAGE SECTIONS */
