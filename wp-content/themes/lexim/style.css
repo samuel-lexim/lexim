@@ -802,6 +802,10 @@ textarea {
   font-size: 18px;
 }
 
+.statistic-item ._counter {
+  font-weight: bold;
+}
+
 /* general */
 
 .text_section {
@@ -828,9 +832,27 @@ textarea {
   display: flex;
 }
 
+.statistic_section {
+  background: #f5f5f5;
+}
+
+.statistic-item ._inner {
+  text-align: center;
+  background: #13a89e;
+  height: 100%;
+  padding: 40px 10px;
+  color: #fff;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+
+
+
 
 @media only screen and (min-width: 768px) {
-  .button_contact a {
+  .button_contact a,
+  .statistic-item ._name {
     font-size: 18px;
     font-weight: 600;
   }
@@ -863,6 +885,19 @@ textarea {
 
   .imageText_section .hncHeading {
     margin-bottom: 40px;
+  }
+
+  .statistic-items {
+    display: flex;
+  }
+
+  .statistic-item {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .statistic-item ._counter {
+    font-size: 72px;
   }
 }
 
