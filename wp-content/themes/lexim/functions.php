@@ -265,6 +265,7 @@ function my_custom_page_columns($column)
 
 add_filter("manage_post_posts_columns", "post_columns");
 add_filter("manage_team_posts_columns", "post_columns");
+add_filter("manage_client_posts_columns", "post_columns");
 function post_columns($columns)
 {
     $first_column = ['thumb_image' => 'Thumb'];
@@ -280,6 +281,7 @@ function post_columns($columns)
 
 add_action("manage_post_posts_custom_column", "my_custom_post_columns");
 add_action("manage_team_posts_custom_column", "my_custom_post_columns");
+add_action("manage_client_posts_custom_column", "my_custom_post_columns");
 function my_custom_post_columns($column)
 {
     global $post;
