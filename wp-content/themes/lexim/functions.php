@@ -195,7 +195,7 @@ if (defined('JETPACK__VERSION')) {
 //add_image_size( 'large', 120, 120, true );
 //add_image_size( 'medium_large', 120, 120, true );
 //add_image_size( 'medium', 120, 120, true );
-add_image_size( 'post-thumbnail', 120);
+add_image_size('post-thumbnail', 120);
 
 // Disable the threshold.
 add_filter('big_image_size_threshold', '__return_false');
@@ -338,16 +338,18 @@ if (function_exists('acf_add_options_page')) {
 }
 
 // Add Page Slug Body Class
-function add_slug_body_class( $classes ) {
+function add_slug_body_class($classes)
+{
     global $post;
-    if ( isset( $post ) ) {
+    if (isset($post)) {
         $classes[] = $post->post_type . '-' . $post->post_name;
     }
     return $classes;
 }
-add_filter( 'body_class', 'add_slug_body_class' );
 
-// Show reusable blocks in the admin menu
+add_filter('body_class', 'add_slug_body_class');
+
+
 /**
  * Show reusable blocks in the admin menu
  *
@@ -357,33 +359,33 @@ add_filter( 'body_class', 'add_slug_body_class' );
  * @param string $post_type The post type slug.
  * @return array Returns the filtered array of arguments.
  */
-function show_blocks_in_menu( $args, $post_type ) {
+function show_blocks_in_menu($args, $post_type)
+{
 
     // Bail if not the wp_block post type.
-    if ( 'wp_block' !== $post_type ) {
+    if ('wp_block' !== $post_type) {
         return $args;
     }
 
     // Clearly label the blocks as reusable.
     $wp_block_labels = [
-        'name'         => __( 'Reusable Blocks', 'text-domain' ),
-        'menu_name'    => __( 'Blocks', 'text-domain' ),
-        'all_items'    => __( 'Reusable Blocks', 'text-domain' ),
-        'search_items' => __( 'Search Blocks', 'text-domain' )
+        'name' => __('Reusable Blocks', 'text-domain'),
+        'menu_name' => __('Blocks', 'text-domain'),
+        'all_items' => __('Reusable Blocks', 'text-domain'),
+        'search_items' => __('Search Blocks', 'text-domain')
     ];
 
     // New block arguments.
     $wp_block_args = [
-        '_builtin'      => false,
-        'show_in_menu'  => true,
+        '_builtin' => false,
+        'show_in_menu' => true,
         'menu_position' => 63,
-        'menu_icon'     => 'dashicons-screenoptions',
-        'labels'        => $wp_block_labels
+        'menu_icon' => 'dashicons-screenoptions',
+        'labels' => $wp_block_labels
     ];
 
     // Merge and return the filtered array of arguments.
-    return array_merge( $args, $wp_block_args );
+    return array_merge($args, $wp_block_args);
 }
 
-// Add the filter.
-add_filter( 'register_post_type_args', 'show_blocks_in_menu', 10, 2 );
+add_filter('register_post_type_args', 'show_blocks_in_menu', 10, 2);
