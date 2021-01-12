@@ -54,6 +54,12 @@ if (isset($args) && $args) {
                                     <p class="_content"><?= $item->post_content ?></p>
                                 </div>
                             </div>
+                        <?php } else { // Clients ?>
+                            <div class="post_list_item <?= $item->post_type ?>">
+                                <div class="_inner">
+                                    <?= get_the_post_thumbnail($item, 'full'); ?>
+                                </div>
+                            </div>
                         <?php } ?>
 
                     <?php } ?>
