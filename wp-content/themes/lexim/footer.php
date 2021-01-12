@@ -13,6 +13,14 @@ $copy_rights = get_field('copy_rights', 'option');
 $social_links = get_field('social_links', 'option');
 ?>
 
+<div class="contact_section text_section one_col color_SeaGreen">
+    <h2 class="dfHeading ">Tell us about your project.</h2>
+    <div class="_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</div>
+    <div class="button_contact">
+        <a class="" href="javascript:void(0)"><span>Free Consultation</span></a>
+    </div>
+</div>
+
 <footer class="site-footer" id="footer">
 
     <?php if ($social_links && is_array($social_links)) { ?>

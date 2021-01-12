@@ -868,17 +868,12 @@ textarea {
   text-align: center;
 }
 
-.text_section.color_0d4d66 {
-  background: #0d4d66;
-  color: #fff;
-}
-
-.text_section.color_0d4d66 .dfHeading {
+.text_section .dfHeading {
   font-weight: bold;
 }
 
 .button_contact {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .button_contact a {
@@ -894,6 +889,26 @@ textarea {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+}
+
+.text_section.color_Blue {
+  background: #0d4d66;
+  color: #fff;
+}
+
+
+
+.text_section.color_SeaGreen {
+  background: #2d948d;
+  color: #fff;
+}
+
+.text_section.color_SeaGreen .button_contact a {
+  border: 1px solid;
+}
+
+.contact_section.text_section.color_SeaGreen .button_contact {
+  margin-top: 5vw;
 }
 
 .imageText_section {
