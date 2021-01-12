@@ -268,6 +268,7 @@ function my_custom_page_columns($column)
 add_filter("manage_post_posts_columns", "post_columns");
 add_filter("manage_team_posts_columns", "post_columns");
 add_filter("manage_client_posts_columns", "post_columns");
+add_filter("manage_projects_posts_columns", "post_columns");
 function post_columns($columns)
 {
     $first_column = ['thumb_image' => 'Thumb'];
@@ -284,12 +285,13 @@ function post_columns($columns)
 add_action("manage_post_posts_custom_column", "my_custom_post_columns");
 add_action("manage_team_posts_custom_column", "my_custom_post_columns");
 add_action("manage_client_posts_custom_column", "my_custom_post_columns");
+add_action("manage_projects_posts_custom_column", "my_custom_post_columns");
 function my_custom_post_columns($column)
 {
     global $post;
     switch ($column) {
         case 'thumb_image' :
-            $noImg = get_stylesheet_directory_uri() . '/assets/img/noimage-admin.jpg';
+            $noImg = get_stylesheet_directory_uri() . '/assets/no-image-admin.png';
             $thumb = get_the_post_thumbnail_url($post->ID);
             if ($thumb && $thumb !== "") {
                 $noImg = $thumb;
@@ -344,3 +346,44 @@ function add_slug_body_class( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'add_slug_body_class' );
+
+// Show reusable blocks in the admin menu
+/**
+ * Show reusable blocks in the admin menu
+ *
+ * Filters the wp_block post type arguments.
+ *
+ * @param array $args The registered post type arguments.
+ * @param string $post_type The post type slug.
+ * @return array Returns the filtered array of arguments.
+ */
+function show_blocks_in_menu( $args, $post_type ) {
+
+    // Bail if not the wp_block post type.
+    if ( 'wp_block' !== $post_type ) {
+        return $args;
+    }
+
+    // Clearly label the blocks as reusable.
+    $wp_block_labels = [
+        'name'         => __( 'Reusable Blocks', 'text-domain' ),
+        'menu_name'    => __( 'Blocks', 'text-domain' ),
+        'all_items'    => __( 'Reusable Blocks', 'text-domain' ),
+        'search_items' => __( 'Search Blocks', 'text-domain' )
+    ];
+
+    // New block arguments.
+    $wp_block_args = [
+        '_builtin'      => false,
+        'show_in_menu'  => true,
+        'menu_position' => 63,
+        'menu_icon'     => 'dashicons-screenoptions',
+        'labels'        => $wp_block_labels
+    ];
+
+    // Merge and return the filtered array of arguments.
+    return array_merge( $args, $wp_block_args );
+}
+
+// Add the filter.
+add_filter( 'register_post_type_args', 'show_blocks_in_menu', 10, 2 );
