@@ -40,6 +40,12 @@
             }
         });
 
+        // Banner Slick
+        $('.banner_slick_wrap').slick({
+            arrows: false,
+            dots: true,
+            adaptiveHeight: true
+        });
 
     });
 

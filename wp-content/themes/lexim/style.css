@@ -821,6 +821,10 @@ textarea {
 /************* PAGE SECTIONS */
 
 /* font size */
+.banner_item ._heading {
+  font-size: 70px;
+}
+
 .dfHeading {
   font-size: 48px;
   font-weight: 600;
@@ -833,23 +837,27 @@ textarea {
   font-family: 'HelveticaNeueCondensed', san-serif, serif;
 }
 
-.bold-font {
-  font-family: 'HelveticaNeueCondensed', san-serif, serif;
+.banner_text ._summary {
+  font-size: 26px;
 }
 
 .how_it_work_item ._name {
   font-size: 22px;
 }
 
+.banner_text ._button,
 .imageText_section ._description {
   font-size: 18px;
 }
 
+/* general */
 .statistic-item ._counter {
   font-weight: bold;
 }
 
-/* general */
+.bold-font {
+  font-family: 'HelveticaNeueCondensed', san-serif, serif;
+}
 
 ._description p:last-child {
   margin-bottom: 0 !important;
@@ -1063,6 +1071,48 @@ textarea {
 
 .how_it_work_item ._logo {
   margin: 0 auto 30px;
+}
+
+.banner_section {
+
+}
+
+.banner_item ._inner {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+.banner_item .banner_text {
+  flex: 1;
+}
+
+.banner_item .banner_img {
+  flex: 1;
+}
+
+.banner_item ._heading {
+  margin: 5vw 0 20px;
+  line-height: 1.2;
+}
+
+.banner_text ._button {
+  display: inline-block;
+  min-width: 230px;
+  height: 70px;
+  line-height: 70px;
+  padding: 0 15px;
+  margin-top: 4vw;
+  background: #13a89e;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 
 

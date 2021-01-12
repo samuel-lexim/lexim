@@ -146,9 +146,11 @@ add_action('widgets_init', 'lexim_widgets_init');
  */
 function lexim_scripts()
 {
+    wp_enqueue_style('slick-1.8.1-style', get_stylesheet_directory_uri() . '/assets/slick.css', array(), _S_VERSION);
     wp_enqueue_style('lexim-style', get_stylesheet_uri(), array(), _S_VERSION);
     wp_style_add_data('lexim-style', 'rtl', 'replace');
 
+    wp_enqueue_script('slick-1.8.1-script', get_template_directory_uri() . '/js/slick.min.js', array(), _S_VERSION, true);
     wp_enqueue_script('lexim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
     wp_enqueue_script('main-script', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true);
 
