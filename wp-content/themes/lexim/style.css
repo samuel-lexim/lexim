@@ -816,6 +816,10 @@ textarea {
   font-family: 'HelveticaNeueCondensed', san-serif, serif;
 }
 
+.bold-font {
+  font-family: 'HelveticaNeueCondensed', san-serif, serif;
+}
+
 .imageText_section ._description {
   font-size: 18px;
 }
@@ -909,7 +913,70 @@ textarea {
   font-weight: 600;
 }
 
+.post_list_section .hncHeading {
+  letter-spacing: 7px;
+  margin-bottom: 70px;
+}
 
+.post_list_items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post_list_item.team {
+  flex-basis: calc(25% - 25px);
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.post_list_item.team ._inner {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 60px 30px;
+  background: #fafafa;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  -webkit-box-shadow: 0 10px 10px 0 rgba(169, 169, 169, 0.25);
+  -moz-box-shadow: 0 10px 10px 0 rgba(169, 169, 169, 0.25);
+  box-shadow: 0 10px 10px 0 rgba(169, 169, 169, 0.25);
+  border: solid 0 #c4c4c4;
+}
+
+.post_list_item.team .wp-post-image {
+  width: 160px;
+  margin-bottom: 50px;
+}
+
+.post_list_item.team ._name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.post_list_item.team ._position {
+  font-size: 20px;
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+.post_list_item.team ._content {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.post_list_item.team ._socials {
+  margin-bottom: 10px;
+}
+
+.post_list_item.team ._socials a {
+  text-decoration: none;
+  margin: 10px;
+  display: inline-block;
+}
 
 @media only screen and (min-width: 768px) {
   .button_contact a,
