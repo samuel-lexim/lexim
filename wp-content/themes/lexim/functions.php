@@ -196,6 +196,7 @@ if (defined('JETPACK__VERSION')) {
 //add_image_size( 'medium_large', 120, 120, true );
 //add_image_size( 'medium', 120, 120, true );
 add_image_size('post-thumbnail', 120);
+add_image_size('projects-thumb', 560, 340, true);
 
 // Disable the threshold.
 add_filter('big_image_size_threshold', '__return_false');
