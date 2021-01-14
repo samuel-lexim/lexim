@@ -17,7 +17,7 @@ $social_links = get_field('social_links', 'option');
     <h2 class="dfHeading ">Tell us about your project.</h2>
     <div class="_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</div>
     <div class="button_contact">
-        <a class="" href="javascript:void(0)"><span>Free Consultation</span></a>
+        <a class="_button" href="javascript:void(0)"><span>Free Consultation</span></a>
     </div>
 </div>
 

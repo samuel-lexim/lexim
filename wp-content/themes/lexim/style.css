@@ -871,18 +871,16 @@ textarea {
   font-size: 15px;
 }
 
-.banner_text ._button {
+._button {
   font-size: 16px;
-  font-weight: 500;
 }
 
+.statistic-item ._name,
 .imageText_section ._description {
   font-size: 18px;
 }
 
-.button_contact a,
 .statistic-item ._name {
-  font-size: 18px;
   font-weight: 600;
 }
 
@@ -908,7 +906,7 @@ textarea {
     font-size: 22px;
   }
 
-  .banner_text ._button {
+  ._button {
     font-size: 18px;
   }
 
@@ -916,7 +914,6 @@ textarea {
     font-size: 18px;
   }
 
-  .button_contact a,
   .statistic-item ._name {
     font-size: 18px;
   }
@@ -951,6 +948,36 @@ textarea {
   margin-bottom: 0 !important;
 }
 
+._button {
+  display: inline-block;
+  min-width: 165px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  margin-top: 20px;
+  background: #13a89e;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 1024px) {
+  ._button {
+    min-width: 230px;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 15px;
+    margin-top: 4vw;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+}
+
 /* Text section */
 .text_section {
   background: #fafafa;
@@ -965,20 +992,6 @@ textarea {
   margin-top: 50px;
 }
 
-.button_contact a {
-  display: block;
-  width: 230px;
-  margin: 0 auto;
-  padding: 0 10px;
-  background: #13a89e;
-  color: #fff;
-  height: 70px;
-  line-height: 70px;
-  text-decoration: none;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-}
 
 .text_section.color_Blue {
   background: #0d4d66;
@@ -997,6 +1010,12 @@ textarea {
 .contact_section.text_section.color_SeaGreen .button_contact {
   margin-top: 5vw;
 }
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+/* Image text section */
 
 .imageText_section {
   display: -webkit-flex;
@@ -1292,22 +1311,6 @@ textarea {
   line-height: 1.2;
 }
 
-.banner_text ._button {
-  display: inline-block;
-  min-width: 165px;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 15px;
-  margin-top: 20px;
-  background: #13a89e;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  text-align: center;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
 
 @media only screen and (max-width: 1023px) {
   .banner_item ._inner {
@@ -1353,16 +1356,7 @@ textarea {
     margin: 0 0 20px;
   }
 
-  .banner_text ._button {
-    min-width: 230px;
-    height: 70px;
-    line-height: 70px;
-    padding: 0 15px;
-    margin-top: 4vw;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-  }
+
 }
 
 @media only screen and (min-width: 1440px) {
