@@ -809,6 +809,13 @@ textarea {
 }
 
 .footer_socials {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
   margin-bottom: 10px;
 }
 
@@ -818,20 +825,38 @@ textarea {
   display: inline-block;
 }
 
+@media only screen and (max-width: 767px) {
+  .site-footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .copy-rights {
+    margin: 0 auto 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .copy-rights {
+    max-width: 220px;
+    line-height: 1.8;
+  }
+}
+
 /************* PAGE SECTIONS */
 
 /* font size */
 .banner_item ._heading {
-  font-size: 70px;
+  font-size: 30px;
 }
 
 .dfHeading {
-  font-size: 48px;
+  font-size: 24px;
   font-weight: 600;
 }
 
 .hncHeading {
-  font-size: 48px;
+  font-size: 24px;
   line-height: 1.2;
   margin-bottom: 70px;
   font-family: 'HelveticaNeueCondensed', san-serif, serif;
@@ -842,7 +867,7 @@ textarea {
 }
 
 .how_it_work_item ._name {
-  font-size: 22px;
+  font-size: 15px;
 }
 
 .banner_text ._button,
@@ -863,6 +888,7 @@ textarea {
   margin-bottom: 0 !important;
 }
 
+/* Text section */
 .text_section {
   background: #fafafa;
   text-align: center;
@@ -1054,6 +1080,7 @@ textarea {
   align-items: center;
 }
 
+/* How it work section */
 .how_it_work_section {
   background: #fafafa;
 }
@@ -1064,6 +1091,9 @@ textarea {
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
@@ -1087,9 +1117,7 @@ textarea {
   margin: 0 auto 30px;
 }
 
-.banner_section {
-
-}
+/* Banner Home */
 
 .banner_item ._inner {
   display: -webkit-flex;
@@ -1097,6 +1125,12 @@ textarea {
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .banner_item .banner_text {
@@ -1258,12 +1292,43 @@ textarea {
 
 
 @media only screen and (min-width: 768px) {
+  /* Font sizes */
+  .banner_item ._heading {
+    font-size: 70px;
+  }
+
+  .dfHeading {
+    font-size: 48px;
+    font-weight: 600;
+  }
+
+  .hncHeading {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 70px;
+    font-family: 'HelveticaNeueCondensed', san-serif, serif;
+  }
+
+  .banner_text ._summary {
+    font-size: 26px;
+  }
+
+  .how_it_work_item ._name {
+    font-size: 22px;
+  }
+
+  .banner_text ._button,
+  .imageText_section ._description {
+    font-size: 18px;
+  }
+
   .button_contact a,
   .statistic-item ._name {
     font-size: 18px;
     font-weight: 600;
   }
 
+  /* general */
   .one_col {
     padding: 6vw 4vw;
   }
@@ -1272,6 +1337,80 @@ textarea {
     margin-bottom: 20px;
   }
 
+  /* banner home */
+  .banner_item ._inner {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+  }
+
+  .banner_item .banner_text {
+    flex: 1;
+  }
+
+  .banner_item .banner_img {
+    flex: 1;
+  }
+
+  .banner_item ._heading {
+    margin: 5vw 0 20px;
+    line-height: 1.2;
+  }
+
+  .banner_text ._button {
+    display: inline-block;
+    min-width: 230px;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 15px;
+    margin-top: 4vw;
+    background: #13a89e;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  /* How it work section */
+  .how_it_work_section {
+    background: #fafafa;
+  }
+
+  .how_it_work_items {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .how_it_work_item {
+    -webkit-flex: 0 320px;
+    -ms-flex: 0 320px;
+    flex: 0 320px;
+    background: #fff;
+    padding: 60px 40px;
+    text-align: center;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-box-shadow: 0 10px 10px 0 rgba(221, 221, 221, 0.25);
+    -moz-box-shadow: 0 10px 10px 0 rgba(221, 221, 221, 0.25);
+    box-shadow: 0 10px 10px 0 rgba(221, 221, 221, 0.25);
+  }
+
+  .how_it_work_item ._logo {
+    margin: 0 auto 30px;
+  }
+
+  /* Text section */
   .text_section ._description {
     font-size: 26px;
     max-width: 800px;
