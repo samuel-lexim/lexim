@@ -10,13 +10,15 @@ if (isset($args) && $args) {
         <?php } ?>
 
 
-        <?php if ($args['post_items']) { ?>
-            <div class="post_list_items">
-                <?php if (is_array($args['post_items'])) {
-                    foreach ($args['post_items'] as $item) {
-                        $postId = $item->ID; ?>
+        <?php if ($args['post_items']) {
+            if (is_array($args['post_items'])) {
+                $type = $args['post_items'][0]->post_type;
+                ?>
+                <div class="post_list_items <?= $type ?>">
 
-                        <?php if ($item->post_type === 'team') {
+                    <?php foreach ($args['post_items'] as $item) {
+                        $postId = $item->ID;
+                        if ($item->post_type === 'team') {
                             $position = get_field('position', $postId);
                             $fb = get_field('sl_fb', $postId);
                             $twitter = get_field('sl_tt', $postId);
@@ -24,7 +26,7 @@ if (isset($args) && $args) {
                             $instagram = get_field('sl_ins', $postId);
 
                             ?>
-                            <div class="post_list_item <?= $item->post_type ?>">
+                            <div class="post_list_item <?= $type ?>">
                                 <div class="_inner">
                                     <?= get_the_post_thumbnail($item, 'full'); ?>
                                     <p class="_name"><?= $item->post_title ?></p>
@@ -55,7 +57,7 @@ if (isset($args) && $args) {
                                 </div>
                             </div>
                         <?php } else { // Clients ?>
-                            <div class="post_list_item <?= $item->post_type ?>">
+                            <div class="post_list_item <?= $type ?>">
                                 <div class="_inner">
                                     <?= get_the_post_thumbnail($item, 'full'); ?>
                                 </div>
@@ -63,8 +65,8 @@ if (isset($args) && $args) {
                         <?php } ?>
 
                     <?php } ?>
-                <?php } ?>
-            </div>
+                </div>
+            <?php } ?>
         <?php } ?>
 
     </div>

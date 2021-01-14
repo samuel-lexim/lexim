@@ -858,8 +858,9 @@ textarea {
 .hncHeading {
   font-size: 24px;
   line-height: 1.2;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
   font-family: 'HelveticaNeueCondensed', san-serif, serif;
+  letter-spacing: 7px;
 }
 
 .banner_text ._summary {
@@ -876,6 +877,10 @@ textarea {
 }
 
 /* general */
+.one_col {
+  padding: 50px 15px;
+}
+
 .statistic-item ._counter {
   font-weight: bold;
 }
@@ -921,7 +926,6 @@ textarea {
   background: #0d4d66;
   color: #fff;
 }
-
 
 .text_section.color_SeaGreen {
   background: #2d948d;
@@ -992,18 +996,16 @@ textarea {
   font-weight: 600;
 }
 
-.post_list_section .hncHeading {
-  letter-spacing: 7px;
-}
-
+/* Post List Section */
 .post_list_items {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
   display: flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .post_list_item.team {
@@ -1070,6 +1072,10 @@ textarea {
   display: inline-block;
 }
 
+.post_list_items.client {
+  margin: -2vw;
+}
+
 .post_list_item.client {
   display: -webkit-flex;
   display: -moz-flex;
@@ -1078,6 +1084,33 @@ textarea {
   display: flex;
   -webkit-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex: 0 33.33%;
+  -ms-flex: 0 33.33%;
+  flex: 0 33.33%;
+  padding: 2vw;
+}
+
+@media only screen and (min-width: 1024px) {
+  .post_list_items.client {
+    margin: -1vw;
+  }
+
+  .post_list_item.client {
+    -webkit-flex: 0 25%;
+    -ms-flex: 0 25%;
+    flex: 0 25%;
+    padding: 1vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .post_list_item.client {
+    -webkit-flex: 0 12.5%;
+    -ms-flex: 0 12.5%;
+    flex: 0 12.5%;
+  }
 }
 
 /* How it work section */
