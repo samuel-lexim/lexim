@@ -226,3 +226,22 @@
     justify-content: center;
   }
 }
+
+@media only screen and (min-width: 1024px) {
+  .rightDot .slick-dots {
+    width: calc(60% - 4.8vw);
+    right: 4vw;
+    left: auto;
+    padding: 0;
+  }
+
+  .introduction_slick .slick-dots li button {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .introduction_slick .slick-dots li:hover button,
+  .introduction_slick .slick-dots li.slick-active button {
+    background: transparent;
+    border-color: #fff;
+  }
+}

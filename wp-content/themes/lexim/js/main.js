@@ -47,6 +47,14 @@
             adaptiveHeight: true
         });
 
+        // Default slick slide
+        $('.default_slick_slider').slick({
+            arrows: false,
+            dots: true,
+            adaptiveHeight: true
+        });
+
+
         // 6 items - Slick
         $('.six_items_slick').on('init', function () {
             convertSvg();

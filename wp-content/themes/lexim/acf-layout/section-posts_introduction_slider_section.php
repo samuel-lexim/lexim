@@ -10,15 +10,15 @@ if (isset($args) && $args) {
 
     <div class="post_introduction_slider_section <?= $slideBg ?>">
         <?php if ($args['heading']) { ?>
-            <h2 class="hncHeading "><?= $args['heading'] ?></h2>
+            <h2 class="hncHeading one_pad"><?= $args['heading'] ?></h2>
         <?php } ?>
 
 
         <?php if ($args['slide_items']) { ?>
-            <div class="introduction_slick">
-
+            <div class="introduction_slick default_slick_slider rightDot">
                 <?php if (is_array($args['slide_items'])) {
                     foreach ($args['slide_items'] as $item) {
+
                         if (isset($item['post_item']) && is_object($item['post_item'])) {
                             $_post = $item['post_item'];
                             $featuredImg = false;
@@ -32,18 +32,36 @@ if (isset($args) && $args) {
                                 }
                                 $featuredImgAlt = $featuredImgAlt === '' ? $_post->post_title : $featuredImgAlt;
                             }
-                            $excerpt = $item['excerpt'] ?? '';
-                            $introduction = $item['introduction'] ?? '';
+                            $excerpt = isset($item['excerpt']) && trim($item['excerpt']) !== '' ? $item['excerpt'] : $_post->post_excerpt;
+                            $introduction = isset($item['introduction']) && $item['introduction'] !== '' ? $item['introduction'] : $_post->post_title;
                             ?>
+
+                            <div class="introduction_slick_item">
+                                <div class="_inner one_col">
+                                    <div class="img_sum">
+                                        <?php if (!$featuredImg) {
+                                            echo get_the_post_thumbnail($_post, 'full');
+                                            ?>
+                                        <?php } else { ?>
+                                            <img class="attachment-full size-full wp-post-image" src="<?= $featuredImg ?>" alt="<?= $featuredImgAlt ?>"/>
+                                        <?php } ?>
+                                        <p class="_intro"><?= $introduction ?></p>
+                                    </div>
+
+                                    <div class="tit_link">
+                                        <p class="_excerpt"><?= $excerpt ?></p>
+
+                                        <a class="_button transparent" href="<?= get_permalink($_post) ?>">
+                                            <span>View Project</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
                         <?php } ?>
-
-                        <div class="introduction_slick_item">
-
-                        </div>
 
                     <?php } ?>
                 <?php } ?>
-
             </div>
         <?php } ?>
 
