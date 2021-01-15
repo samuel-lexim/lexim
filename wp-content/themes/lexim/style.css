@@ -1039,8 +1039,52 @@ textarea {
   border: 1px solid;
 }
 
+.contact_section {
+  position: relative;
+}
+
+.contact_section > * {
+  position: relative;
+  z-index: 3;
+}
+
 .contact_section.text_section.color_SeaGreen .button_contact {
   margin-top: 5vw;
+}
+
+.contact_section .absImg {
+  position: absolute;
+  width: 200px;
+  max-height: 66%;
+  height: 100%;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+  z-index: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+  .contact_section .absImg {
+    max-height: 80%;
+    height: 80%;
+    bottom: 30px;
+    background-position: bottom;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .contact_section .absImg {
+    width: 240px;
+    right: calc(50% - 400px);
+    -webkit-transform: translateX(50%);
+    -moz-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
+    transform: translateX(50%);
+  }
 }
 
 /* Image text section */

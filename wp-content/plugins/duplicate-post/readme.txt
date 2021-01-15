@@ -4,7 +4,7 @@ Donate link: 		https://yoast.com/wordpress/plugins/duplicate-post/
 Tags: 				duplicate post, copy, clone
 Requires at least: 	5.5
 Tested up to: 		5.6
-Stable tag: 		4.0.1
+Stable tag: 		4.0.2
 Requires PHP:		5.6.20
 License: 			GPLv2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
@@ -150,6 +150,12 @@ Some users have experienced a fatal error when upgrading to v1.1: this may fix i
 New features and customization, WP 3.0 compatibility: you should upgrade if you want to copy Custom Posts with Custom Taxonomies.
 
 == Changelog ==
+
+= 4.0.2 (2021-01-14) =
+
+Bugfixes:
+
+* Fixes a bug where errors or notices could be triggered when using the plugin with some other plugins or custom code.
 
 = 4.0.1 (2021-01-12) =
 

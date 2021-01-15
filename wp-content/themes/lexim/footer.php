@@ -11,9 +11,15 @@
 
 $copy_rights = get_field('copy_rights', 'option');
 $social_links = get_field('social_links', 'option');
+
+$rightImg = get_field('contact_section_right_image', 'option');
+
 ?>
 
 <div class="contact_section text_section one_col color_SeaGreen">
+    <?php if (isset($rightImg) && $rightImg) { ?>
+    <div class="absImg" style="background-image: url('<?= $rightImg['url'] ?>')"></div>
+    <?php } ?>
     <h2 class="dfHeading ">Tell us about your project.</h2>
     <div class="_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</div>
     <div class="button_contact">
