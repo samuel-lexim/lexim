@@ -1060,10 +1060,6 @@ textarea {
   text-align: center;
 }
 
-.text_section .dfHeading {
-  font-weight: bold;
-}
-
 .button_contact {
   margin-top: 50px;
 }
@@ -1091,6 +1087,11 @@ textarea {
   position: relative;
   z-index: 3;
 }
+
+.contact_section .dfHeading {
+  font-weight: bold;
+}
+
 
 .contact_section.text_section.color_SeaGreen .button_contact {
   margin-top: 5vw;
@@ -1390,19 +1391,20 @@ textarea {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    padding-right: 4vw;
+    padding-right: 6vw;
+    padding-top: 3vw;
   }
 
   .timeline_section .rightCol {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    padding-left: 4vw;
+    padding-left: 6vw;
+    padding-top: 3vw;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-
   .timeline_section .rocket {
     width: auto;
   }
