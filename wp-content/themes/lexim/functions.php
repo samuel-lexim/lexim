@@ -157,12 +157,22 @@ function lexim_scripts()
     wp_enqueue_script('lexim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
     wp_enqueue_script('main-script', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true);
 
-    if (is_singular() && comments_open() && get_option('thread_comments')) {
-        wp_enqueue_script('comment-reply');
-    }
+//    if (is_singular() && comments_open() && get_option('thread_comments')) {
+//        wp_enqueue_script('comment-reply');
+//    }
 }
 
 add_action('wp_enqueue_scripts', 'lexim_scripts');
+
+/**
+ * Update CSS in Admin page
+ */
+function admin_style()
+{
+    wp_enqueue_style('admin-styles', get_stylesheet_directory_uri() . '/style-admin.css');
+}
+
+add_action('admin_enqueue_scripts', 'admin_style');
 
 /**
  * Implement the Custom Header feature.

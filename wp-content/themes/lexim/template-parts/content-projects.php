@@ -22,7 +22,7 @@ $postId = get_the_ID();
             <?php } ?>
 
             <div class="button_contact">
-                <a class="" href="javascript:void(0)"><span>Free Consultation</span></a>
+                <a class="_button" href="javascript:void(0)"><span>Free Consultation</span></a>
             </div>
         </div>
     </header>
