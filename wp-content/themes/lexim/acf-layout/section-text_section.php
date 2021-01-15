@@ -27,7 +27,7 @@ if (isset($args) && $args) {
 
         <?php if ($args['free_consultation']) { ?>
             <div class="button_contact">
-                <a class="" href="javascript:void(0)"><span>Free Consultation</span></a>
+                <a class="_button" href="javascript:void(0)"><span>Free Consultation</span></a>
             </div>
         <?php } ?>
 
