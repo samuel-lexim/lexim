@@ -53,7 +53,7 @@ if (isset($args) && $args) {
                                             </a>
                                         <?php } ?>
                                     </div>
-                                    <p class="_content"><?= $item->post_content ?></p>
+                                    <div class="_content"><?= $item->post_content ?></div>
                                 </div>
                             </div>
                         <?php } else { // Clients ?>
