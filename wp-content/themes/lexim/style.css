@@ -886,6 +886,16 @@ textarea {
   font-size: 15px;
 }
 
+.timeline_item ._year {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.timeline_item ._txtGroup {
+  font-size: 16px;
+  font-weight: 300;
+}
+
 ._button {
   font-size: 16px;
 }
@@ -927,6 +937,14 @@ textarea {
 
   .how_it_work_item ._name {
     font-size: 22px;
+  }
+
+  .timeline_item ._year {
+    font-size: 48px;
+  }
+
+  .timeline_item ._txtGroup {
+    font-size: 24px;
   }
 
   ._button {
@@ -1236,10 +1254,71 @@ textarea {
 
 /* Timeline Section */
 .timeline_section {
+  position: relative;
+  padding-top: 80px;
+  overflow: hidden;
+}
+
+.timeline_section ._inner {
   background: -moz-linear-gradient(to right, #104155, #34a79d);
   background: -webkit-linear-gradient(to right, #104155, #34a79d);;
   background: linear-gradient(to right, #104155, #34a79d);
+  padding-bottom: 570px;
 }
+
+.timeline_section .cloud {
+  position: absolute;
+  bottom: 0;
+  height: 570px;
+  width: auto;
+  left: calc(100vw - 860px);
+}
+
+.timeline_section .smoke {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+.timeline_section ._smoke {
+  position: absolute;
+  top: 135px;
+  right: 0;
+  width: 72px;
+  height: calc(100% - 170px - 190px);
+}
+
+.timeline_section ._smoke:before {
+  content: '';
+  width: 40px;
+  height: 100%;
+  color: #fff;
+  display: block;
+  margin: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: solid #fff;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  -moz-transform-origin: left top;
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+}
+
+.timeline_section .rocket {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 74px;
+  height: auto;
+}
+
 
 .timeline_item {
   color: #fff;
@@ -1248,9 +1327,9 @@ textarea {
   display: -ms-flex;
   display: -o-flex;
   display: flex;
-  margin-bottom: 70px;
+  margin-bottom: 35px;
+  padding-right: 60px;
 }
-
 
 .timeline_item ._img {
   -webkit-flex: 0 0 68px;
@@ -1260,28 +1339,42 @@ textarea {
   padding-top: 17px;
 }
 
-.timeline_item ._txtGroup {
-  font-size: 24px;
-  font-weight: 300;
-}
-
-.timeline_item ._year {
-  font-size: 48px;
-  font-weight: bold;
-}
-
 .timeline_item ._tit {
   font-weight: 600;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 850px) {
   .timeline_section {
     position: relative;
     min-height: 100vh;
     padding-top: 70px;
   }
 
-  .timeline_section .imgBg {
+  .timeline_section .cloud {
+    width: 100%;
+    height: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .timeline_section ._smoke,
+  .timeline_section .rocket {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .timeline_section ._smoke:before {
+    margin: 0 auto;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
   }
 
   .timeline_section ._inner {
@@ -1291,43 +1384,27 @@ textarea {
     display: -o-flex;
     display: flex;
     width: 100%;
-    padding: 75px;
   }
 
   .timeline_section .leftCol {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-right: 50px;
+    padding-right: 4vw;
   }
 
   .timeline_section .rightCol {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-left: 50px;
+    padding-left: 4vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+
+  .timeline_section .rocket {
+    width: auto;
   }
 }
 

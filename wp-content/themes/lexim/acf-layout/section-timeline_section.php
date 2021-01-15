@@ -12,53 +12,57 @@ if (isset($args) && $args) {
     ?>
 
     <?php if (isset($leftCol) && isset($rightCol)) { ?>
-        <div class="timeline_section one_col22" ">
-<!--        <img class="imgBg" src="--><!--" alt=""/>-->
-        <div class="_inner">
-            <div class="leftCol">
-                <?php if (is_array($leftCol) && count($leftCol) > 0) {
-                    foreach ($leftCol as $item) { ?>
-                        <div class="timeline_item">
-                            <div class="_img">
-                                <img src="<?= $item["logo"]["url"] ?>" alt="<?= $item["logo"]["alt"] ?>"/>
-                            </div>
-                            <div class="_txtGroup">
-                                <?php if ($item['year']) { ?>
-                                    <p class="_year"><?= $item['year'] ?></p>
-                                <?php } ?>
-                                <?php if ($item['title']) { ?>
-                                    <p class="_tit"><?= $item['title'] ?></p>
-                                <?php } ?>
-                                <?php if ($item['content']) { ?>
-                                    <div class="_content"><?= $item['content'] ?></div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
-            </div>
+        <div class="timeline_section">
+            <img class="svg cloud" src="<?= get_stylesheet_directory_uri() . '/assets/images/timeline-cloud.svg' ?>" alt="" />
+            <div class="_smoke"></div>
+            <img class="svg rocket" src="<?= get_stylesheet_directory_uri() . '/assets/images/timeline-rocket.svg' ?>" alt="" />
 
-            <div class="rightCol">
-                <?php if (is_array($rightCol) && count($rightCol) > 0) {
-                    foreach ($rightCol as $item) { ?>
-                        <div class="timeline_item">
-                            <div class="_img">
-                                <img src="<?= $item["logo"]["url"] ?>" alt="<?= $item["logo"]["alt"] ?>"/>
+            <div class="_inner one_col">
+                <div class="leftCol">
+                    <?php if (is_array($leftCol) && count($leftCol) > 0) {
+                        foreach ($leftCol as $item) { ?>
+                            <div class="timeline_item">
+                                <div class="_img">
+                                    <img src="<?= $item["logo"]["url"] ?>" alt="<?= $item["logo"]["alt"] ?>"/>
+                                </div>
+                                <div class="_txtGroup">
+                                    <?php if ($item['year']) { ?>
+                                        <p class="_year"><?= $item['year'] ?></p>
+                                    <?php } ?>
+                                    <?php if ($item['title']) { ?>
+                                        <p class="_tit"><?= $item['title'] ?></p>
+                                    <?php } ?>
+                                    <?php if ($item['content']) { ?>
+                                        <div class="_content"><?= $item['content'] ?></div>
+                                    <?php } ?>
+                                </div>
                             </div>
-                            <div class="_txtGroup">
-                                <?php if ($item['year']) { ?>
-                                    <p class="_year"><?= $item['year'] ?></p>
-                                <?php } ?>
-                                <?php if ($item['title']) { ?>
-                                    <p class="_tit"><?= $item['title'] ?></p>
-                                <?php } ?>
-                                <?php if ($item['content']) { ?>
-                                    <div class="_content"><?= $item['content'] ?></div>
-                                <?php } ?>
-                            </div>
-                        </div>
+                        <?php } ?>
                     <?php } ?>
-                <?php } ?>
+                </div>
+
+                <div class="rightCol">
+                    <?php if (is_array($rightCol) && count($rightCol) > 0) {
+                        foreach ($rightCol as $item) { ?>
+                            <div class="timeline_item">
+                                <div class="_img">
+                                    <img src="<?= $item["logo"]["url"] ?>" alt="<?= $item["logo"]["alt"] ?>"/>
+                                </div>
+                                <div class="_txtGroup">
+                                    <?php if ($item['year']) { ?>
+                                        <p class="_year"><?= $item['year'] ?></p>
+                                    <?php } ?>
+                                    <?php if ($item['title']) { ?>
+                                        <p class="_tit"><?= $item['title'] ?></p>
+                                    <?php } ?>
+                                    <?php if ($item['content']) { ?>
+                                        <div class="_content"><?= $item['content'] ?></div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     <?php } ?>

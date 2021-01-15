@@ -48,5 +48,7 @@ $rightImg = get_field('contact_section_right_image', 'option');
 
 <?php wp_footer(); ?>
 
+<style id="customCSS"></style>
+
 </body>
 </html>

@@ -32,7 +32,20 @@
         });
     }
 
+    function setCloudHeight() {
+        let win = jQuery(window); //this = window
+        // if (win.width() <= 849) {
+            let smoke = jQuery('.timeline_section ._smoke');
+            let css = '.timeline_section ._smoke:before {' +
+                '  border-bottom-width: ' + smoke.height() + 'px;' +
+                '}';
+            jQuery('#customCSS').html(css);
+        // }
+    }
+
     $(document).ready(function () {
+        // Convert Images
+        convertSvg();
 
         $(document).keyup(function (e) {
             // press esc
@@ -86,7 +99,16 @@
         });
 
 
-        convertSvg();
+        // TimeLine
+        let timeLine = jQuery('.timeline_section');
+        if (timeLine.length > 0) {
+            setCloudHeight();
+            jQuery(window).resize(function () {
+                setCloudHeight();
+            });
+        }
+
+
     });
 
 }(jQuery));

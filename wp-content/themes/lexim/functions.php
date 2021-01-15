@@ -148,7 +148,10 @@ function lexim_scripts()
 {
     wp_enqueue_style('slick-1.8.1-style', get_stylesheet_directory_uri() . '/assets/slick.css', array(), _S_VERSION);
     wp_enqueue_style('lexim-style', get_stylesheet_uri(), array(), _S_VERSION);
-    wp_style_add_data('lexim-style', 'rtl', 'replace');
+    wp_style_add_data('lexim-style2', 'rtl', 'replace');
+
+//    wp_enqueue_script('jquery-3.5.1', get_template_directory_uri() . '/js/jquery-3.5.1.min.js', array(), _S_VERSION, false);
+//    wp_enqueue_script('jquery-1.12.4', get_template_directory_uri() . '/js/jquery-1.12.4.min.js', array(), false, true);
 
     wp_enqueue_script('slick-1.8.1-script', get_template_directory_uri() . '/js/slick.min.js', array(), _S_VERSION, true);
     wp_enqueue_script('lexim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
@@ -390,3 +393,26 @@ function show_blocks_in_menu($args, $post_type)
 }
 
 add_filter('register_post_type_args', 'show_blocks_in_menu', 10, 2);
+
+// Remove WP version
+
+// remove wp version number from head and rss
+function anti_hack_remove_version()
+{
+    return '';
+}
+
+add_filter('the_generator', 'anti_hack_remove_version');
+
+
+// remove wp version number from scripts and styles
+function remove_css_js_version($src)
+{
+    if (strpos($src, '?ver=')) {
+        $src = remove_query_arg('ver', $src);
+    }
+    return $src;
+}
+
+add_filter('style_loader_src', 'remove_css_js_version', 9999);
+add_filter('script_loader_src', 'remove_css_js_version', 9999);
