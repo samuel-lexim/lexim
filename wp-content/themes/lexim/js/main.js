@@ -33,14 +33,12 @@
     }
 
     function setCloudHeight() {
-        let win = jQuery(window); //this = window
-        // if (win.width() <= 849) {
-            let smoke = jQuery('.timeline_section ._smoke');
-            let css = '.timeline_section ._smoke:before {' +
-                '  border-bottom-width: ' + smoke.height() + 'px;' +
-                '}';
-            jQuery('#customCSS').html(css);
-        // }
+        //let win = jQuery(window); //this = window
+        let smoke = jQuery('.timeline_section ._smoke');
+        let css = '.timeline_section ._smoke:before {' +
+            '  border-bottom-width: ' + smoke.height() + 'px;' +
+            '}';
+        jQuery('#customCSS').html(css);
     }
 
     $(document).ready(function () {
@@ -98,7 +96,7 @@
             ]
         });
 
-        // 6 items - Slick
+        // 3 items - Slick
         $('.three_items_slick').on('init', function () {
             convertSvg();
         }).slick({
