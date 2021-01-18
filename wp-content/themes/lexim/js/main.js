@@ -98,6 +98,37 @@
             ]
         });
 
+        // 6 items - Slick
+        $('.three_items_slick').on('init', function () {
+            convertSvg();
+        }).slick({
+            dots: false,
+            arrows: false,
+            slidesPerRow: 1,
+            rows: 6,
+            mobileFirst: true,
+            prevArrow: "<button type='button' class='slick-prev'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-left.svg' /></button>",
+            nextArrow: "<button type='button' class='slick-next'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-right.svg' /></button>",
+
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesPerRow: 2,
+                        rows: 3,
+                    }
+                },
+                {
+                    breakpoint: 1440,
+                    settings: {
+                        slidesToShow: 2,
+                        rows: 1,
+                        variableWidth: true
+                    }
+                }
+            ]
+        });
+
 
         // TimeLine
         let timeLine = jQuery('.timeline_section');
