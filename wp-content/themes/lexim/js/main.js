@@ -45,9 +45,20 @@
         // Convert Images
         convertSvg();
 
+        // Header
+        let mobileMenu = $('.site-header ._desktop');
+        $('#ClickToOpenMenu').click(function (){
+            mobileMenu.addClass('open');
+        });
+
+        $('#ClickToCloseMenu').click(function (){
+            mobileMenu.removeClass('open');
+        });
+
         $(document).keyup(function (e) {
             // press esc
             if (e.keyCode === 27) {
+                mobileMenu.removeClass('open');
             }
         });
 

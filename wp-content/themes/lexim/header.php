@@ -13,12 +13,12 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-	<?php wp_head(); ?>
+    <?php wp_head(); ?>
 
     <!-- Favicon -->
 
@@ -68,37 +68,48 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+<?php wp_body_open();
+$social_links = get_field('social_links', 'option');
+?>
 <div id="page" class="site">
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$lexim_description = get_bloginfo( 'description', 'display' );
-			if ( $lexim_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $lexim_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+    <header id="masthead" class="site-header">
+        <div class="_mobile one_pad">
+            <div class="site-branding">
+                <?php the_custom_logo(); ?>
+                <div class="nav-icon menu-button" id="ClickToOpenMenu"><span></span></div>
+            </div>
+        </div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'lexim' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+        <div class="_desktop one_pad">
+            <div class="site-branding">
+                <?php the_custom_logo(); ?>
+                <div class="nav-icon menu-close-button" id="ClickToCloseMenu"><span></span></div>
+            </div>
+
+            <nav id="site-navigation" class="main-navigation">
+                <?php /*
+                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                    <?php esc_html_e( 'Primary Menu', 'lexim' ); ?></button> */ ?>
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'menu-1',
+                        'menu_id' => 'primary-menu',
+                        'menu_class' => 'header-menu'
+                    )
+                );
+                ?>
+            </nav>
+
+            <?php if (isset($social_links) && is_array($social_links)) { ?>
+                <div class="header_socials">
+                    <?php foreach ($social_links as $social) { ?>
+                        <a href="<?= $social['link'] ?>">
+                            <img class="svg" src="<?= $social['logo'] ?>" alt="<?= $social['link'] ?>"/>
+                        </a>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+
+        </div>
+    </header>
