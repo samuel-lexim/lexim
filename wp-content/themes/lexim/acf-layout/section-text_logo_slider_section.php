@@ -10,14 +10,13 @@ if (isset($args) && $args) { ?>
 
         <?php if (isset($args['items'])) {
             if (is_array($args['items']) && count($args['items']) > 0) { ?>
-                <div class="three_items_slick" >
-                    <?php foreach ($args['items'] as $item) {
-                        ?>
+                <div class="three_items_slick">
+                    <?php foreach ($args['items'] as $item) { ?>
                         <div class="three_items_slick_item">
                             <div class="_inner">
                                 <div class="_leftTxt">
                                     <?php if ($item["heading"]) { ?>
-                                    <p class="_heading"><?= $item["heading"] ?></p>
+                                        <p class="_heading"><?= $item["heading"] ?></p>
                                     <?php } ?>
                                     <?php if ($item["content"]) { ?>
                                         <div class="_content"><?= $item["content"] ?></div>
@@ -32,7 +31,7 @@ if (isset($args) && $args) { ?>
                                             $logoAlt = isset($item["logo"]["alt"]) && $item["logo"]["alt"] !== "" ? $item["logo"]["alt"] : $logoAlt;
                                         }
                                         ?>
-                                    <img class="svg" src="<?= $logo ?>" alt="<?= $logoAlt ?>" />
+                                        <img class="svg" src="<?= $logo ?>" alt="<?= $logoAlt ?>"/>
                                     <?php } ?>
                                 </div>
 
