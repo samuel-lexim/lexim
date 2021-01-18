@@ -62,6 +62,18 @@
             }
         });
 
+        $('.header-menu .menu-item-has-children > a').click(function (){
+            let parent = $(this).parent();
+            if (parent.hasClass('open')) {
+                parent.removeClass('open current-menu-ancestor');
+            } else {
+                parent.addClass('open');
+            }
+        });
+
+        // End - Header
+
+
         // Banner Slick
         $('.banner_slick_wrap').slick({
             arrows: false,
