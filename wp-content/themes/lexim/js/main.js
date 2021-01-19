@@ -1,5 +1,30 @@
 (function ($) {
 
+    let six_items_slick_args = {
+        dots: false,
+        slidesPerRow: 1,
+        rows: 3,
+        mobileFirst: true,
+        adaptiveHeight: true,
+        prevArrow: "<button type='button' class='slick-prev'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-left.svg' /></button>",
+        nextArrow: "<button type='button' class='slick-next'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-right.svg' /></button>",
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesPerRow: 2
+                }
+            },
+            {
+                breakpoint: 1440,
+                settings: {
+                    slidesPerRow: 3,
+                    rows: 2,
+                }
+            }
+        ]
+    };
+
     function convertSvg() {
         // Convert img to svg
         $('img.svg').each(function () {
@@ -41,17 +66,64 @@
         jQuery('#customCSS').html(css);
     }
 
+    /**
+     * Filter Posts by type and taxonomy
+     * @param sectionSelector
+     * @param type
+     * @param cat
+     * @param taxonomy
+     */
+    function loadPostByTaxonomy(sectionSelector = '', type = '', cat = '', taxonomy = '') {
+        if (!type || type === '') {
+            return;
+        }
+
+        $.ajax({
+            url: '/wp-admin/admin-ajax.php',
+            type: 'post',
+            data: {
+                'action': 'load_posts_by_type_and_taxonomy',
+                'type': type,
+                'taxonomy': taxonomy, // {type}_cat
+                'cat': cat
+            },
+            cache: false,
+            dataType: "json",
+            beforeSend: function () {
+                $(sectionSelector).addClass('disabled');
+            },
+            success: function (result) {
+                unSlickAndAssignData(sectionSelector + ' .six_items_slick', result.html, six_items_slick_args);
+            },
+            complete: function () {
+                $(sectionSelector).removeClass('disabled');
+            }
+        })
+    }
+
+    /**
+     *
+     * @param slickSelector
+     * @param data
+     * @param args
+     */
+    function unSlickAndAssignData(slickSelector, data, args) {
+        $(slickSelector).slick('unslick');
+        $(slickSelector).html(data);
+        $(slickSelector).slick(args);
+    }
+
     $(document).ready(function () {
         // Convert Images
         convertSvg();
 
         // Header
         let mobileMenu = $('.site-header ._desktop');
-        $('#ClickToOpenMenu').click(function (){
+        $('#ClickToOpenMenu').click(function () {
             mobileMenu.addClass('open');
         });
 
-        $('#ClickToCloseMenu').click(function (){
+        $('#ClickToCloseMenu').click(function () {
             mobileMenu.removeClass('open');
         });
 
@@ -62,7 +134,7 @@
             }
         });
 
-        $('.header-menu .menu-item-has-children > a').click(function (){
+        $('.header-menu .menu-item-has-children > a').click(function () {
             let parent = $(this).parent();
             if (parent.hasClass('open')) {
                 parent.removeClass('open current-menu-ancestor');
@@ -92,32 +164,22 @@
         // 6 items - Slick
         $('.six_items_slick').on('init', function () {
             convertSvg();
-        }).slick({
-            dots: false,
-            slidesPerRow: 1,
-            rows: 1,
-            mobileFirst: true,
-            adaptiveHeight: true,
-            prevArrow: "<button type='button' class='slick-prev'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-left.svg' /></button>",
-            nextArrow: "<button type='button' class='slick-next'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-right.svg' /></button>",
+        }).slick(six_items_slick_args);
 
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesPerRow: 2,
-                        rows: 2,
-                    }
-                },
-                {
-                    breakpoint: 1440,
-                    settings: {
-                        slidesPerRow: 3,
-                        rows: 2,
-                    }
-                }
-            ]
+        $('.filter-item').click(function () {
+            let _this = $(this);
+            let sectionId = _this.attr('data-id');
+            sectionId = sectionId.charAt(0) !== '#' ? '#' + sectionId : sectionId;
+            let type = _this.attr('data-type');
+            let taxonomy = _this.attr('data-taxonomy');
+            let slug = _this.attr('data-slug');
+            // Switch filter values
+            $(sectionId + ' .filter-item').removeClass('selected');
+            _this.addClass('selected');
+            // Load ajax data
+            loadPostByTaxonomy(sectionId, type, slug, taxonomy);
         });
+
 
         // 3 items - Slick
         $('.three_items_slick').on('init', function () {
@@ -130,7 +192,6 @@
             mobileFirst: true,
             prevArrow: "<button type='button' class='slick-prev'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-left.svg' /></button>",
             nextArrow: "<button type='button' class='slick-next'><img class='svg' src='/wp-content/themes/lexim/assets/arrow-right.svg' /></button>",
-
             responsive: [
                 {
                     breakpoint: 768,

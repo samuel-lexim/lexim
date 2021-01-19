@@ -426,3 +426,62 @@ function remove_css_js_version($src)
 
 add_filter('style_loader_src', 'remove_css_js_version', 9999);
 add_filter('script_loader_src', 'remove_css_js_version', 9999);
+
+// Load ajax posts
+
+add_action('wp_ajax_load_posts_by_type_and_taxonomy', 'load_posts_by_type_and_taxonomy');
+add_action('wp_ajax_nopriv_load_post_type_by_taxonomy', 'load_posts_by_type_and_taxonomy');
+
+/**
+ * Increase or Decrease like number of post
+ */
+function load_posts_by_type_and_taxonomy()
+{
+    $type = $_POST["type"];
+    $category = $_POST["cat"];
+    $taxonomy = $_POST['taxonomy'];
+    $data = [
+        'type' => $type,
+        'cat' => $category,
+        'taxonomy' => $taxonomy,
+        'html' => ''
+    ];
+
+    $postArgs = array(
+        'numberposts' => -1,
+        'post_type' => $type,
+        'post_status' => 'publish',
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+
+    if (isset($category) && $category !== '') {
+        $category = explode(',', $category);
+        $taxonomy = $taxonomy === '' ? $type . '_cat' : $taxonomy;
+        $data['taxonomy'] = $taxonomy;
+        $postArgs['tax_query'] = array(
+            array(
+                'taxonomy' => $taxonomy,
+                'field' => 'slug',
+                'terms' => $category,
+                'operator' => 'IN'
+            )
+        );
+    }
+
+    $_posts = get_posts($postArgs);
+    $html = '';
+    foreach ($_posts as $project) {
+        $html .= '<div class="post_type_slick_item">';
+        $html .= '<div class="_inner">';
+        $html .= get_the_post_thumbnail($project, 'projects-thumb');
+        $html .= '<div class="_overlay">';
+        $html .= '<p>' . $project->post_title . '</p>';
+        $html .= '<a class="_view_link" href="' . get_permalink($project) . '"><span>View ' . $type . '</span></a>';
+        $html .= '</div></div></div>';
+    }
+    $data['html'] = $html;
+    wp_reset_query();
+    echo json_encode($data);
+    die();
+}

@@ -25,9 +25,10 @@
         $page_sections = get_field('page_sections');
 
         if ($page_sections && is_array($page_sections)) {
+            $id = 0;
             foreach ($page_sections as $section) {
                 $layout = $section['acf_fc_layout'];
-
+                $section['sectionId'] = $layout . '_' . $id++;
                 get_template_part('acf-layout/section', $layout, $section);
                 ?>
             <?php } ?>
