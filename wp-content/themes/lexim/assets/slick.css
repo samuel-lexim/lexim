@@ -212,6 +212,10 @@
   justify-content: flex-start;
 }
 
+.dots_outer.slick-dotted.slick-slider {
+  padding-bottom: 50px;
+}
+
 @media only screen and (max-width: 1023px) {
   .slick-dots {
     bottom: 0;

@@ -2301,9 +2301,9 @@ textarea {
 
 /* DETAIL PAGE */
 .post-detail-page .entry-content {
-  max-width: 1160px;
+  max-width: 830px;
   margin: 0 auto;
-  padding: 4vw 20px;
+  padding: 0 15px 4vw;
 }
 
 .entry-content {
@@ -2336,6 +2336,30 @@ textarea {
 
 .entry-content .post-thumbnail-wrap {
   margin-bottom: 30px;
+}
+
+.paddingForSlider {
+  padding-bottom: 20vw;
+}
+
+.entry-content .banner_slick_wrap {
+  margin-bottom: 50px;
+  margin-top: -20vw;
+}
+
+.gallery-item img {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 850px) {
+  .paddingForSlider {
+    padding-bottom: 140px;
+  }
+
+  .entry-content .banner_slick_wrap {
+    margin-bottom: 70px;
+    margin-top: calc(-4vw - 95px);
+  }
 }
 
 /* # DETAIL PAGE */
