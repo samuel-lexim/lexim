@@ -42,7 +42,7 @@ if (isset($args) && $args) {
                                 ?>
                                 <div class="filter-item" data-id="<?= $args['sectionId'] ?>" data-type="<?= $type ?>"
                                      data-slug="<?= $cat->slug ?>" data-taxonomy="<?= $cat->taxonomy ?>">
-                                    <span><?= $cat->name . ' (' . $cat->category_count . ')' ?></span>
+                                    <span><?= $cat->name // . ' (' . $cat->category_count . ')' ?></span>
                                 </div>
                             <?php } ?>
                         <?php } ?>
