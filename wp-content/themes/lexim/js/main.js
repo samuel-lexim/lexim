@@ -79,7 +79,7 @@
         }
 
         $.ajax({
-            url: '/wp-admin/admin-ajax.php',
+            url: ajax_object.ajax_url,
             type: 'post',
             data: {
                 'action': 'load_posts_by_type_and_taxonomy',

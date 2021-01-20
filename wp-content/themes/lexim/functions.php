@@ -157,6 +157,12 @@ function lexim_scripts()
     wp_enqueue_script('lexim-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
     wp_enqueue_script('main-script', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true);
 
+    wp_localize_script(
+        'main-script',
+        'ajax_object',
+        ['ajax_url' => admin_url('admin-ajax.php')]
+    );
+
 //    if (is_singular() && comments_open() && get_option('thread_comments')) {
 //        wp_enqueue_script('comment-reply');
 //    }
@@ -430,11 +436,8 @@ add_filter('script_loader_src', 'remove_css_js_version', 9999);
 // Load ajax posts
 
 add_action('wp_ajax_load_posts_by_type_and_taxonomy', 'load_posts_by_type_and_taxonomy');
-add_action('wp_ajax_nopriv_load_post_type_by_taxonomy', 'load_posts_by_type_and_taxonomy');
+add_action('wp_ajax_nopriv_load_posts_by_type_and_taxonomy', 'load_posts_by_type_and_taxonomy');
 
-/**
- * Increase or Decrease like number of post
- */
 function load_posts_by_type_and_taxonomy()
 {
     $type = $_POST["type"];
@@ -483,5 +486,5 @@ function load_posts_by_type_and_taxonomy()
     $data['html'] = $html;
     wp_reset_query();
     echo json_encode($data);
-    die();
+    wp_die();
 }
