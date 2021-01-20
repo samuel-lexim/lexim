@@ -1079,6 +1079,27 @@ textarea {
   }
 }
 
+/************ 404 page */
+.error-404-page .page-header {
+  text-align: center;
+}
+
+.error-404-page .page-header p {
+  font-weight: bold;
+  font-size: 100px;
+}
+
+.error-404-page .page-header h1 {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .error-404-page .page-header h1 {
+    font-size: 50px;
+  }
+}
+
 /************* PAGE SECTIONS */
 
 /* font size */
