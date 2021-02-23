@@ -39,14 +39,6 @@ class wfAPI {
 		}
 
 		$dat = json_decode($json, true);
-		
-		$dat['_isPaidKey']=true;
-		$dat['_keyExpDays']=365;
-		$dat['_nextRenewAttempt']=365;
-		
-		
-		
-		
 		if (isset($dat['_isPaidKey'])) {
 			wfConfig::set('keyExpDays', $dat['_keyExpDays']);
 			if ($dat['_keyExpDays'] > -1) {

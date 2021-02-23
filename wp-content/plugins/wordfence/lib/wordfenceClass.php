@@ -2008,11 +2008,6 @@ SQL
 			$homeurl = wfUtils::wpHomeURL();
 			$siteurl = wfUtils::wpSiteURL();
 			
-			
-			wfConfig::set('isPaid', 1);
-			wfConfig::set('keyType', wfAPI::KEY_TYPE_PAID_CURRENT);
-			wfConfig::set('premiumNextRenew', time()+31536000);
-			
 			//Sync the GeoIP database if needed
 			$destination = WFWAF_LOG_PATH . '/GeoLite2-Country.mmdb';
 			if (!file_exists($destination) || wfConfig::get('needsGeoIPSync')) {
