@@ -21,7 +21,7 @@ $rightImg = get_field('contact_section_right_image', 'option');
     <div class="absImg" style="background-image: url('<?= $rightImg['url'] ?>')"></div>
     <?php } ?>
     <h2 class="dfHeading ">Tell us about your project.</h2>
-    <div class="_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</div>
+    <div class="_description"></div>
     <div class="button_contact">
         <a class="_button" href="javascript:void(0)"><span>Free Consultation</span></a>
     </div>
